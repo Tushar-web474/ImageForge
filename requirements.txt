@@ -1,0 +1,8 @@
+Flask
+Flask-Session
+stability-sdk
+Pillow
+Werkzeug
+requests
+python-dotenv
+tabulate
