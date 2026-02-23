@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-purple-600 to-blue-500">
+    <nav class="p-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-white">ImageForge</h1>
+            <div class="space-x-4">
+                <a href="{{ url_for('login') }}" class="text-white hover:text-gray-200 transition">Login</a>
+                <a href="{{ url_for('signup') }}" class="bg-white text-purple-600 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-6 py-16">
+        <div class="text-center text-white mb-16">
+            <h2 class="text-5xl font-bold mb-6">Transform Your Ideas Into Stunning Images</h2>
+            <p class="text-xl mb-8 text-gray-100">Harness the power of AI to create beautiful, unique images from simple text descriptions</p>
+            <a href="{% if session.user_id %}{{ url_for('generate') }}{% else %}{{ url_for('signup') }}{% endif %}" class="bg-white text-purple-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition inline-block">
+                Get Started
+            </a>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-2xl p-12 max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold text-gray-800 mb-6">About ImageForge</h3>
+            <div class="space-y-4 text-gray-600">
+                <p class="text-lg">
+                    ImageForge is a cutting-edge AI-powered image generation platform that brings your creative visions to life. Using advanced Stability AI technology, we transform your text descriptions into stunning visual artwork.
+                </p>
+                <p class="text-lg">
+                    Whether you're an artist seeking inspiration, a designer exploring concepts, or simply someone who loves to create, ImageForge provides you with the tools to generate unique, high-quality images in seconds.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6 mt-8">
+                    <div class="text-center">
+                        <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Lightning Fast</h4>
+                        <p class="text-sm text-gray-600">Generate images in seconds with our powerful AI</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Secure & Private</h4>
+                        <p class="text-sm text-gray-600">Your creations are stored securely in your personal gallery</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">History Tracking</h4>
+                        <p class="text-sm text-gray-600">Access all your generated images anytime</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
